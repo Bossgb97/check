@@ -234,7 +234,7 @@ function read_rotor(rotor_file::String; data_path=def_data_path)
     # Path to rotor files
     rotor_path = joinpath(data_path, "rotors")
 
-    data = DataFrames.DataFrame!(CSV.File(joinpath(rotor_path, rotor_file)))
+    data = DataFrames.DataFrame(CSV.File(joinpath(rotor_path, rotor_file)))
     Rtip = Meta.parse(data[1, 2])
     Rhub = Meta.parse(data[2, 2])
     B = Meta.parse(data[3, 2])
