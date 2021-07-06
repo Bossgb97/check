@@ -249,12 +249,12 @@ function read_blade(blade_file::String; data_path=def_data_path)
     rotor_path = joinpath(data_path, "rotors")
 
     # Read blade
-    files = DataFrames.DataFrame!(CSV.File(joinpath(rotor_path, blade_file)))
-    chorddist = DataFrames.DataFrame!(CSV.File(joinpath(rotor_path, files[1, 2])))
-    pitchdist = DataFrames.DataFrame!(CSV.File(joinpath(rotor_path, files[2, 2])))
-    sweepdist = DataFrames.DataFrame!(CSV.File(joinpath(rotor_path, files[3, 2])))
-    heightdist = DataFrames.DataFrame!(CSV.File(joinpath(rotor_path, files[4, 2])))
-    airfoil_files = DataFrames.DataFrame!(CSV.File(joinpath(rotor_path, files[5, 2])))
+    files = DataFrames.DataFrame(CSV.File(joinpath(rotor_path, blade_file)))
+    chorddist = DataFrames.DataFrame(CSV.File(joinpath(rotor_path, files[1, 2])))
+    pitchdist = DataFrames.DataFrame(CSV.File(joinpath(rotor_path, files[2, 2])))
+    sweepdist = DataFrames.DataFrame(CSV.File(joinpath(rotor_path, files[3, 2])))
+    heightdist = DataFrames.DataFrame(CSV.File(joinpath(rotor_path, files[4, 2])))
+    airfoil_files = DataFrames.DataFrame(CSV.File(joinpath(rotor_path, files[5, 2])))
     spl_k = Meta.parse(files[6, 2])
     spl_s = Meta.parse(files[7, 2])
 

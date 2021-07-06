@@ -251,7 +251,7 @@ thetaprev = Array{Float64}(undef, 3)
 xdotprev = Array{Float64}(undef, 3)
 omegaprev = Array{Float64}(undef, 3)
 for i in 1:4
-rpm[i] = self.RPM[i](t)
+rpm[i] = self.RPMref*self.RPM[i](t)
 end
 for i in 1:3
 xprev[i] = self.MovementMatix[3+i,selfi.nt]
@@ -299,7 +299,7 @@ thetaprev = Array{Float64}(undef, 3)
 xdotprev = Array{Float64}(undef, 3)
 omegaprev = Array{Float64}(undef, 3)
 for i in 1:4
-rpm[i] = self.RPM[i](t)
+rpm[i] = self.RPMref*self.RPM[i](t)
 end
 for i in 1:3
 xprev[i] = self.MovementMatix[3+i,nt]
